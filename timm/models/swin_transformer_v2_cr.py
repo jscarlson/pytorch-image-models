@@ -715,6 +715,7 @@ class SwinTransformerV2Cr(nn.Module):
             new_window_size = tuple([s // img_window_ratio for s in new_img_size])
         # Set new image size
         self.img_size = new_img_size
+        self.patch_embed.img_size = new_img_size
         # Compute new patch resolution & update resolution of each stage
         new_patch_grid_size = (new_img_size[0] // self.patch_size, new_img_size[1] // self.patch_size)
         for index, stage in enumerate(self.stages):
