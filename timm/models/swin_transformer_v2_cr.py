@@ -719,7 +719,7 @@ class SwinTransformerV2Cr(nn.Module):
             stage_scale = 2 ** max(index - 1, 0)
             stage.update_input_size(
                 new_window_size=new_window_size,
-                new_img_size=(new_patch_grid_size[0] // stage_scale, new_patch_grid_size[1] // stage_scale),
+                new_feat_size=(new_patch_grid_size[0] // stage_scale, new_patch_grid_size[1] // stage_scale),
             )
 
     @torch.jit.ignore
